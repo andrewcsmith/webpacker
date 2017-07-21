@@ -465,12 +465,14 @@ const Hello = props => (
 ### Inside views
 
 Under the hood webpack uses
-[extract-text-webpack-plugin](https://github.com/webpack-contrib/extract-text-webpack-plugin) plugin to extract all the referenced styles within your app and compile it into
+[extract-text-webpack-plugin](https://github.com/webpack-contrib/extract-text-webpack-plugin) plugin to extract all the referenced styles within `app/javascripts/packs/[pack_name].js` and compile it into
 a separate `[pack_name].css` bundle so that in your view you can use the
 `stylesheet_pack_tag` helper.
 
 ```erb
+<% # Both reference the file app/javascripts/packs/hello_react.js %>
 <%= stylesheet_pack_tag 'hello_react' %>
+<%= javascript_pack_tag 'hello_react' %>
 ```
 
 You can also link js/images/styles used within your js app in views using
